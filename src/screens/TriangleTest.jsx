@@ -3,12 +3,10 @@ import { HorizontalFlexContainer } from "../components/custom/Styled";
 import Input from "../components/tradeshift/Input";
 import Button from "../components/tradeshift/Button";
 import Board from "../components/tradeshift/Board";
-import * as Checks from "../Checks";
+import * as TriangleCheck from "../helpers/TriangleChecks";
 
-// const inputA;
-// const inputB;
-// const inputC;
 export default class TriangleTest extends Component {
+    
   constructor(props) {
     super(props);
     this.state = {};
@@ -19,13 +17,13 @@ export default class TriangleTest extends Component {
     const b = parseFloat(this.state["inputB"]);
     const c = parseFloat(this.state["inputC"]);
 
-    if (!Checks.isValid(a, b, c)) 
+    if (!TriangleCheck.isValid(a, b, c)) 
       this.setResult("Invalid triangle");
-    else if (Checks.isEquilateral(a, b, c)) 
+    else if (TriangleCheck.isEquilateral(a, b, c)) 
       this.setResult("Triangle is Equilateral");
-    else if (Checks.isIsosceles(a, b, c)) 
+    else if (TriangleCheck.isIsosceles(a, b, c)) 
       this.setResult("Triangle is Isosceles");
-    else if (Checks.isScalene(a, b, c)) 
+    else if (TriangleCheck.isScalene(a, b, c)) 
       this.setResult("Triangle is Scalene");
     else 
       this.setResult("Unknown type of triangle");
@@ -35,6 +33,7 @@ export default class TriangleTest extends Component {
     this.setState({
       [id]: event.target.value
     });
+    this.setResult("");
   }
 
   setResult(result) {
