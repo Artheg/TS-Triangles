@@ -62,7 +62,7 @@ export default class TriangleTest extends Component {
           />
 
           <Button
-            label="Check Triangle"
+            label="Check triangle type"
             onClick={this.onButtonClick.bind(this)}
           />
         </Board>
