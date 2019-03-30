@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HorizontalFlexContainer } from '../components/Styled';
+import { HorizontalFlexContainer } from '../components/custom/Styled';
 import Input from '../components/tradeshift/Input';
 import Button from '../components/tradeshift/Button';
 import Board from '../components/tradeshift/Board';
