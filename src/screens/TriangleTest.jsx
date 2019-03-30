@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { HorizontalFlexContainer } from '../components/Styled';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import Board from '../components/Board';
+import Input from '../components/tradeshift/Input';
+import Button from '../components/tradeshift/Button';
+import Board from '../components/tradeshift/Board';
 
 export default class TriangleTest extends Component {
     render() {
