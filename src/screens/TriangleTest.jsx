@@ -4,29 +4,27 @@ import Input from "../components/tradeshift/Input";
 import Button from "../components/tradeshift/Button";
 import Board from "../components/tradeshift/Board";
 import * as TriangleCheck from "../helpers/TriangleChecks";
+import * as SideID from "../const/SideID";
 
 export default class TriangleTest extends Component {
-    
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   onButtonClick(e) {
-    const a = parseFloat(this.state["inputA"]);
-    const b = parseFloat(this.state["inputB"]);
-    const c = parseFloat(this.state["inputC"]);
+    const a = parseFloat(this.state[SideID.A]);
+    const b = parseFloat(this.state[SideID.B]);
+    const c = parseFloat(this.state[SideID.C]);
 
-    if (!TriangleCheck.isValid(a, b, c)) 
-      this.setResult("Invalid triangle");
-    else if (TriangleCheck.isEquilateral(a, b, c)) 
+    if (!TriangleCheck.isValid(a, b, c)) this.setResult("Invalid triangle");
+    else if (TriangleCheck.isEquilateral(a, b, c))
       this.setResult("Triangle is Equilateral");
-    else if (TriangleCheck.isIsosceles(a, b, c)) 
+    else if (TriangleCheck.isIsosceles(a, b, c))
       this.setResult("Triangle is Isosceles");
-    else if (TriangleCheck.isScalene(a, b, c)) 
+    else if (TriangleCheck.isScalene(a, b, c))
       this.setResult("Triangle is Scalene");
-    else 
-      this.setResult("Unknown type of triangle");
+    else this.setResult("Unknown type of triangle");
   }
 
   onInputChange(id, event) {
@@ -49,18 +47,18 @@ export default class TriangleTest extends Component {
           <p>Enter triangle sides</p>
           <Input
             type="number"
-            label="A"
-            onChange={this.onInputChange.bind(this, "inputA")}
+            label={SideID.A}
+            onChange={this.onInputChange.bind(this, SideID.A)}
           />
           <Input
             type="number"
-            label="B"
-            onChange={this.onInputChange.bind(this, "inputB")}
+            label={SideID.B}
+            onChange={this.onInputChange.bind(this, SideID.B)}
           />
           <Input
             type="number"
-            label="C"
-            onChange={this.onInputChange.bind(this, "inputC")}
+            label={SideID.C}
+            onChange={this.onInputChange.bind(this, SideID.C)}
           />
 
           <Button
@@ -71,7 +69,7 @@ export default class TriangleTest extends Component {
 
         <Board>
           <p>Result will be displayed here</p>
-          <h3>{this.state.result}</h3>
+          <em>{this.state.result}</em>
         </Board>
       </HorizontalFlexContainer>
     );
