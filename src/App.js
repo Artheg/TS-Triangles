@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-import TriangleTest from './screens/TriangleTest';
+import TriangleTest from './screens/TriangleTypeCheck';
 
 class App extends Component {
   render() {

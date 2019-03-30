@@ -3,7 +3,7 @@ import { HorizontalFlexContainer } from "../components/custom/Styled";
 import Input from "../components/tradeshift/Input";
 import Button from "../components/tradeshift/Button";
 import Board from "../components/tradeshift/Board";
-import * as TriangleCheck from "../helpers/TriangleChecks";
+import * as TriangleCheck from "../helpers/TriangleTypeCheckers";
 import * as SideID from "../const/SideID";
 
 export default class TriangleTest extends Component {
