@@ -4,16 +4,28 @@ import Input from '../components/tradeshift/Input';
 import Button from '../components/tradeshift/Button';
 import Board from '../components/tradeshift/Board';
 
+// const inputA;
+// const inputB;
+// const inputC;
 export default class TriangleTest extends Component {
     render() {
+
+        const inputA = React.createElement(Input, { type: "number", label: "A" });
+        const inputB = React.createElement(Input, { type: "number", label: "B" });
+        const inputC = React.createElement(Input, { type: "number", label: "C" });
+
+        const onButtonClick = (e) => {
+            console.log(e);
+        };
+
         return (
             <HorizontalFlexContainer>
                 <Board>
                     <p>Enter triangle sides</p>
-                    <Input type="number" label="A" />
-                    <Input type="number" label="B" />
-                    <Input type="number" label="C" />
-                    <Button label="Check Triangle"></Button>
+                    {inputA}
+                    {inputB}
+                    {inputC}
+                    <Button label="Check Triangle" onClick={onButtonClick}></Button>
                 </Board>
 
                 <Board>
@@ -23,3 +35,4 @@ export default class TriangleTest extends Component {
         );
     }
 }
+
