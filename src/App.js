@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-import TriangleTypeCheckScreen from './screens/TriangleTypeCheckScreen';
+import AppRouter from './routes/AppRouter';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TriangleTypeCheckScreen />
+      <AppRouter />
       </div>
     );
   }
