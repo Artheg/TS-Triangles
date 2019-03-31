@@ -6,7 +6,7 @@ import Board from "../components/tradeshift/Board";
 import * as TriangleCheck from "../helpers/TriangleTypeCheckers";
 import * as SideID from "../const/SideID";
 
-export default class TriangleTest extends Component {
+export default class TriangleTypeCheckScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {};
