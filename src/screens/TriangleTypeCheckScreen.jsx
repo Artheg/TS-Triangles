@@ -49,25 +49,25 @@ export default class TriangleTypeCheckScreen extends Component {
           <p>Enter triangle sides</p>
           <Input
             testId={TestId.inputA}
-            type='number'
+            type="number"
             label={SideId.A}
             onChange={this.onInputChange.bind(this, SideId.A)}
           />
           <Input
             testId={TestId.inputB}
-            type='number'
+            type="number"
             label={SideId.B}
             onChange={this.onInputChange.bind(this, SideId.B)}
           />
           <Input
             testId={TestId.inputC}
-            type='number'
+            type="number"
             label={SideId.C}
             onChange={this.onInputChange.bind(this, SideId.C)}
           />
 
           <Button testId={TestId.checkResultBtn}
-            label='Check triangle type'
+            label="Check triangle type"
             onClick={this.onButtonClick.bind(this)}
           />
         </Board>

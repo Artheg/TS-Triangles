@@ -15,6 +15,8 @@ test('User should enter triangle sides and get a result', () => {
     const button = getByTestId(TestId.checkResultBtn);
     const result = getByTestId(TestId.result);
 
+    expect(result.textContent).toBe('');
+
     fireEvent.change(inputA, { target: { value: 2 } });
     fireEvent.change(inputB, { target: { value: 3 } });
     fireEvent.change(inputC, { target: { value: 4 } });
