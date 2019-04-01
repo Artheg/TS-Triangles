@@ -9,10 +9,14 @@ describe('Triangle is valid', () => {
 
     it('if all sides are greater than zero', () => {
         expect(TypeCheckers.isValid(-2, 3, 4)).toBe(false);
+        expect(TypeCheckers.isValid(2, -3, 4)).toBe(false);
+        expect(TypeCheckers.isValid(2, 3, -4)).toBe(false);
     });
 
     it('if none of sides are NaN', () => {
         expect(TypeCheckers.isValid(NaN, 3, 4)).toBe(false);
+        expect(TypeCheckers.isValid(2, NaN, 4)).toBe(false);
+        expect(TypeCheckers.isValid(2, 3, NaN)).toBe(false);
     });
 });
 

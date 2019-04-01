@@ -1,10 +1,12 @@
-import React, { Component } from "react";
-import { HorizontalFlexContainer } from "../components/custom/Styled";
-import Input from "../components/tradeshift/Input";
-import Button from "../components/tradeshift/Button";
-import Board from "../components/tradeshift/Board";
-import * as TriangleCheck from "../helpers/TriangleTypeCheckers";
-import * as SideID from "../const/SideID";
+import React, { Component } from 'react';
+import { HorizontalFlexContainer } from '../components/custom/Styled';
+import Input from '../components/tradeshift/Input';
+import Button from '../components/tradeshift/Button';
+import Board from '../components/tradeshift/Board';
+import * as TriangleCheck from '../helpers/TriangleTypeCheckers';
+import * as SideId from '../const/SideId';
+import * as TestId from '../const/TestId';
+import * as Text from '../mock/Text';
 
 export default class TriangleTypeCheckScreen extends Component {
   constructor(props) {
@@ -13,25 +15,25 @@ export default class TriangleTypeCheckScreen extends Component {
   }
 
   onButtonClick(e) {
-    const a = parseFloat(this.state[SideID.A]);
-    const b = parseFloat(this.state[SideID.B]);
-    const c = parseFloat(this.state[SideID.C]);
+    const a = parseFloat(this.state[SideId.A]);
+    const b = parseFloat(this.state[SideId.B]);
+    const c = parseFloat(this.state[SideId.C]);
 
-    if (!TriangleCheck.isValid(a, b, c)) this.setResult("Invalid triangle");
+    if (!TriangleCheck.isValid(a, b, c)) this.setResult(Text.data['invalid']);
     else if (TriangleCheck.isEquilateral(a, b, c))
-      this.setResult("Triangle is Equilateral");
+      this.setResult(Text.data['equilateral']);
     else if (TriangleCheck.isIsosceles(a, b, c))
-      this.setResult("Triangle is Isosceles");
+      this.setResult(Text.data['isosceles']);
     else if (TriangleCheck.isScalene(a, b, c))
-      this.setResult("Triangle is Scalene");
-    else this.setResult("Unknown type of triangle");
+      this.setResult(Text.data['scalene']);
+    else this.setResult(Text.data['unknown']);
   }
 
   onInputChange(id, event) {
     this.setState({
       [id]: event.target.value
     });
-    this.setResult("");
+    this.setResult('');
   }
 
   setResult(result) {
@@ -46,30 +48,33 @@ export default class TriangleTypeCheckScreen extends Component {
         <Board>
           <p>Enter triangle sides</p>
           <Input
-            type="number"
-            label={SideID.A}
-            onChange={this.onInputChange.bind(this, SideID.A)}
+            testId={TestId.inputA}
+            type='number'
+            label={SideId.A}
+            onChange={this.onInputChange.bind(this, SideId.A)}
           />
           <Input
-            type="number"
-            label={SideID.B}
-            onChange={this.onInputChange.bind(this, SideID.B)}
+            testId={TestId.inputB}
+            type='number'
+            label={SideId.B}
+            onChange={this.onInputChange.bind(this, SideId.B)}
           />
           <Input
-            type="number"
-            label={SideID.C}
-            onChange={this.onInputChange.bind(this, SideID.C)}
+            testId={TestId.inputC}
+            type='number'
+            label={SideId.C}
+            onChange={this.onInputChange.bind(this, SideId.C)}
           />
 
-          <Button
-            label="Check triangle type"
+          <Button testId={TestId.checkResultBtn}
+            label='Check triangle type'
             onClick={this.onButtonClick.bind(this)}
           />
         </Board>
 
         <Board>
           <p>Result will be displayed here</p>
-          <em>{this.state.result}</em>
+          <em data-testid={TestId.result}>{this.state.result}</em>
         </Board>
       </HorizontalFlexContainer>
     );

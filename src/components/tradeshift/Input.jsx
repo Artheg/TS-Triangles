@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class InputField extends Component {
   render() {
@@ -7,7 +7,7 @@ export default class InputField extends Component {
         <fieldset>
           <label>
             <span>{this.props.label}</span>
-            <input
+            <input data-testid={this.props.testId}
               type={this.props.type}
               required
               onChange={this.props.onChange}
